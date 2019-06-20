@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "name":"Pacific rim",
+        "tel":"0905301110",
+        "permission":1
+    },
+    {
+        "id":2,
+        "name":"Batman",
+        "tel":"01225508061",
+        "permission":2
+    },
+    {
+        "id":3,
+        "name":"Kim Anna ",
+        "tel":"038223649",
+        "permission":3
+    },
+    {
+        "id":4,
+        "name":"Kalista",
+        "tel":"08592626",
+        "permission":1
+    },
+    {
+        "id":5,
+        "name":"Trung dep trai",
+        "tel":"0905301110",
+        "permission":1
+    },
+    {
+        "id":6,
+        "name":"Superman",
+        "tel":"2284546",
+        "permission":1
+    }
+]
