@@ -5,14 +5,26 @@ class Seach extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tempValue: ''
+            tempValue: '',
+            userObject:{}
         }
     }
+    // Start Nhận thay đổi của edit và lưu vào state
+    getUserEditInfo = (info) => {
+        this.setState({
+            userObject: info
+        });
+        this.props.getUserEditInfoApp(info);
+    }
+    // End Nhận thay đổi của edit và lưu vào state
+
     isShowEditForm = () => {
         if (this.props.editUserStatus === true) {
             return (
-                <EditUser changeEditUserStatus={() => this.props.changeEditUserStatus()}
-                          userEditObject={this.props.userEditObject} />
+                <EditUser
+                    getUserEditInfo={(info) => this.getUserEditInfo(info)}
+                    changeEditUserStatus={() => this.props.changeEditUserStatus()}
+                    userEditObject={this.props.userEditObject} />
             )
         }
     }

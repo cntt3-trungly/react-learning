@@ -3,27 +3,36 @@ import React, { Component } from 'react';
 class EditUser extends Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             id: this.props.userEditObject.id,
-            name:this.props.userEditObject.name,
-            phone:this.props.userEditObject.tel,
-            permission:this.props.userEditObject.permission
+            name: this.props.userEditObject.name,
+            phone: this.props.userEditObject.tel,
+            permission: this.props.userEditObject.permission
         }
     }
     //Luu thay doi 
-    isChange =(event) => {
+    isChange = (event) => {
         const name = event.target.name;
-        const value = event.target.value;  
+        const value = event.target.value;
 
         this.setState({
-            [name]:value
+            [name]: value
         });
     }
     //end luu thay doi
 
+    //xu ly nut luu chuyen props
+    saveButton = () => {
+        var info = {};
+        info.id = this.state.id;
+        info.name = this.state.name;
+        info.phone = this.state.phone;
+        info.permission = this.state.permission;
+        this.props.getUserEditInfo(info);
+        this.props.changeEditUserStatus();
+    }
+    //end xu ly nut luu truyen props
     render() {
-        console.log(this.state);
-        
         return (
             <div className="col">
                 <form method="post">
@@ -32,20 +41,20 @@ class EditUser extends Component {
                         <div className="card-body text-primary">
                             <div className="form-group">
                                 <input type="text" name="name" className="form-control" aria-describedby="helpId"
-                                 placeholder="Tên User" 
-                                 defaultValue={this.props.userEditObject.name}
-                                  onChange={(event)=>this.isChange(event)}/>
+                                    placeholder="Tên User"
+                                    defaultValue={this.props.userEditObject.name}
+                                    onChange={(event) => this.isChange(event)} />
                             </div>
                             <div className="form-group">
-                                <input type="text" name="phone" className="form-control" aria-describedby="helpId" 
-                                placeholder="Điện thoại" 
-                                defaultValue={this.props.userEditObject.tel}
-                                onChange={(event)=>this.isChange(event)}/>
+                                <input type="text" name="phone" className="form-control" aria-describedby="helpId"
+                                    placeholder="Điện thoại"
+                                    defaultValue={this.props.userEditObject.tel}
+                                    onChange={(event) => this.isChange(event)} />
                             </div>
                             <div className="form-group">
                                 <select
                                     defaultValue={this.props.userEditObject.permission}
-                                    onChange={(event)=>this.isChange(event)}
+                                    onChange={(event) => this.isChange(event)}
                                     name="permission"
                                     className="custom-select" required>
                                     <option value>Chọn quyền mặc định</option>
@@ -55,9 +64,9 @@ class EditUser extends Component {
                                 </select>
                             </div>
                             <div className="form-group">
-                                <input type="reset" className="btn btn-block btn-primary" 
-                                onClick={()=>this.props.changeEditUserStatus()}
-                                value="Lưu" />
+                                <input type="reset" className="btn btn-block btn-primary"
+                                    onClick={() => this.saveButton()}
+                                    value="Lưu" />
                             </div>
                         </div>
                     </div>

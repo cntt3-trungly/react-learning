@@ -43,7 +43,6 @@ class App extends Component {
       data: items
     });
     console.log(this.state.data);
-
   }
 
 
@@ -67,9 +66,14 @@ class App extends Component {
     });
   }
 
-   // End lấy dữ liệu User bỏ vào form edit
+  // End lấy dữ liệu User bỏ vào form edit
 
+  //Begin lay du lieu tu edit tu search
 
+  getUserEditInfoApp = (info) => {
+    console.log(info);
+
+  }
 
   // thongBao =()=>{
   //   alert('ket noi thanh cong') ;
@@ -92,6 +96,7 @@ class App extends Component {
             <div className="row">
 
               <Seach
+                getUserEditInfoApp={(info) => this.getUserEditInfoApp(info)}
                 userEditObject={this.state.userEditObject}
                 checkConnectProps={(dl) => this.getTextSearch(dl)}
                 ketNoi={() => this.doiTrangThai()}
