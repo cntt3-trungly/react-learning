@@ -17,10 +17,20 @@ class App extends Component {
   }
 
   getDataAddUser = (name,phone,permission) => {
-    console.log(name);
-    console.log(phone);
-    console.log(permission);
-  }
+   var item={};
+   item.id="";
+   item.name=name;
+   item.tel=phone;
+   item.permission=permission;
+   console.log(item);
+   var items = this.state.data
+   items.push(item);
+   this.setState({
+     data : items
+   });
+   console.log(this.state.data);
+   
+}
 
 
   doiTrangThai = () => {

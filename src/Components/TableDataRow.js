@@ -12,8 +12,8 @@ class TableDataRow extends Component {
             <tr>
                 <td>{this.props.stt}</td>
                 <td>{this.props.name}</td>
+                <td>{this.props.phone}</td>
                 <td>{this.permissionShow()}</td>
-                <td>{this.props.permission}</td>
                 <td>
                     <div className="btn-group">
                         <div className="btn btn-warning sua"> <i className="fa fa-edit" />Sửa</div>
