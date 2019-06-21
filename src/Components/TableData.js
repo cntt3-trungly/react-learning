@@ -8,7 +8,7 @@ class TableData extends Component {
         this.props.dataUserProps.map((value,key)=>(
             
             <TableDataRow
-            editFunClick ={()=>this.props.editFun()}
+            editFunClick ={(user)=>this.props.editFun(value)}
             key={key}             
             stt={value.id}
             name={value.name}        

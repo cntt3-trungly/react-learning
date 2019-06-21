@@ -47,8 +47,10 @@ class App extends Component {
     })
   }
 
-  editUser = () => {
+  editUser = (user) => {
     console.log("ket noi ok");
+    console.log(user);
+    
   }
 
 
@@ -78,7 +80,7 @@ class App extends Component {
                 hienThiForm={this.state.hienThiForm} />
 
               <TableData
-                editFun={() => this.editUser()}
+                editFun={(user) => this.editUser(user)}
                 dataUserProps={ketqua} />
 
 
