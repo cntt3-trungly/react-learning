@@ -15,6 +15,7 @@ class Seach extends Component {
             userObject: info
         });
         this.props.getUserEditInfoApp(info);
+        
     }
     // End Nhận thay đổi của edit và lưu vào state
 

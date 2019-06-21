@@ -70,10 +70,19 @@ class App extends Component {
 
   //Begin lay du lieu tu edit tu search
 
-  getUserEditInfoApp = (info) => {
-    console.log(info);
+  getUserEditInfoApp = (info) => {  
+    this.state.data.forEach((value, key) => {
+      if (value.id === info.id) {
+        value.name = info.name;
+        value.tel = info.phone;
+        value.permission = info.permission;
+      }
+    })
 
   }
+
+  //End lay du lieu tu edit tu search
+
 
   // thongBao =()=>{
   //   alert('ket noi thanh cong') ;
