@@ -57,7 +57,6 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-    console.log(ketqua);
 
     return (
       <div>
