@@ -86,8 +86,10 @@ class App extends Component {
   //Start lay id delete
 
   deleteButtonClickApp = (id) => {
-    console.log(id);
-    
+    var tempData= this.state.data.filter(item => item.id !== id );
+    this.setState({
+      data :tempData
+    });
   }
 
    //end lay id delete
