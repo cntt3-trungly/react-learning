@@ -1,7 +1,29 @@
 import React, { Component } from 'react';
 
 class EditUser extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            id: this.props.userEditObject.id,
+            name:this.props.userEditObject.name,
+            phone:this.props.userEditObject.tel,
+            permission:this.props.userEditObject.permission
+        }
+    }
+    //Luu thay doi 
+    isChange =(event) => {
+        const name = event.target.name;
+        const value = event.target.value;  
+
+        this.setState({
+            [name]:value
+        });
+    }
+    //end luu thay doi
+
     render() {
+        console.log(this.state);
+        
         return (
             <div className="col">
                 <form method="post">
@@ -11,16 +33,19 @@ class EditUser extends Component {
                             <div className="form-group">
                                 <input type="text" name="name" className="form-control" aria-describedby="helpId"
                                  placeholder="Tên User" 
-                                 defaultValue={this.props.userEditObject.name}/>
+                                 defaultValue={this.props.userEditObject.name}
+                                  onChange={(event)=>this.isChange(event)}/>
                             </div>
                             <div className="form-group">
                                 <input type="text" name="phone" className="form-control" aria-describedby="helpId" 
                                 placeholder="Điện thoại" 
-                                defaultValue={this.props.userEditObject.tel}/>
+                                defaultValue={this.props.userEditObject.tel}
+                                onChange={(event)=>this.isChange(event)}/>
                             </div>
                             <div className="form-group">
                                 <select
                                     defaultValue={this.props.userEditObject.permission}
+                                    onChange={(event)=>this.isChange(event)}
                                     name="permission"
                                     className="custom-select" required>
                                     <option value>Chọn quyền mặc định</option>
