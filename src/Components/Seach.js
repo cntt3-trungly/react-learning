@@ -5,16 +5,18 @@ class Seach extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tempValue: '' 
+            tempValue: ''
         }
     }
-    isShowEditForm =()=> {
-        if(this.props.editUserStatus === true){
+    isShowEditForm = () => {
+        if (this.props.editUserStatus === true) {
             return (
-            <EditUser changeEditUserStatus={()=>this.props.changeEditUserStatus()}/>    
-            )}
+                <EditUser changeEditUserStatus={() => this.props.changeEditUserStatus()}
+                          userEditObject={this.props.userEditObject} />
+            )
+        }
     }
-        
+
     isChange = (event) => {
         this.setState({
             tempValue: event.target.value
@@ -32,18 +34,18 @@ class Seach extends Component {
 
     render() {
         return (
-        
+
             <div className="col-12">
                 <div className="row">
                     {
                         this.isShowEditForm()
-                    }                  
+                    }
                 </div>
                 <div className="form-group">
                     <div className="btn-group">
                         <input type="text" className="form-control" onChange={(event) => this.isChange(event)}
                             aria-describedby="helpId" placeholder="Nhập tên" style={{ width: '650px' }} />
-                        <div className="btn btn-info" onClick={(dl)=>this.props.checkConnectProps(this.state.tempValue)}>Tìm</div>
+                        <div className="btn btn-info" onClick={(dl) => this.props.checkConnectProps(this.state.tempValue)}>Tìm</div>
                         {this.hienThiNut()}
                     </div>
                 </div>

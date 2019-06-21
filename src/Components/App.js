@@ -15,7 +15,8 @@ class App extends Component {
       hienThiForm: false,
       data: DataUser,
       searchText: '',
-      editUserStatus: true
+      editUserStatus: false,
+      userEditObject: {}
     }
   }
 
@@ -57,10 +58,16 @@ class App extends Component {
       searchText: dl
     })
   }
+  // Lấy dữ liệu User bỏ vào form edit
 
   editUser = (user) => {
     console.log(user);
+    this.setState({
+      userEditObject: user
+    });
   }
+
+   // End lấy dữ liệu User bỏ vào form edit
 
 
 
@@ -85,6 +92,7 @@ class App extends Component {
             <div className="row">
 
               <Seach
+                userEditObject={this.state.userEditObject}
                 checkConnectProps={(dl) => this.getTextSearch(dl)}
                 ketNoi={() => this.doiTrangThai()}
                 hienThiForm={this.state.hienThiForm}
