@@ -15,11 +15,23 @@ function App() {
   // console.log(p2);
   // console.log(p1);
   
-  var a1 =[0,2,4];
-  var a2 = [...a1]  ;
-  a2[0]= 100;
-  console.log(a1);
-  console.log(a2);
+  // var a1 =[0,2,4];
+  // var a2 = [...a1]  ;
+  // a2[0]= 100;
+  // console.log(a1);
+  // console.log(a2);
+
+  var b1 ={
+    num : [1, 2, 3],
+    status :true
+  }
+  var b2 ={...b1,status:false}
+  
+
+  var b3 = {...b1,num:[...b1.num,100]};
+
+  console.log(b3);
+  
   
   
   
