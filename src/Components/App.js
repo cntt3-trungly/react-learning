@@ -13,12 +13,27 @@ class App extends Component {
     super(props);
     this.state = {
       hienThiForm: false,
-      data: DataUser,
+      data: [],
       searchText: '',
       editUserStatus: false,
       userEditObject: {}
     }
   }
+
+  //Start kiem tra storage 
+  
+  componentWillMount() {
+    if(localStorage.getItem('userData') === null){
+      localStorage.setItem('userData',JSON.stringify(DataUser));
+    }
+    else {
+      var temp = JSON.parse(localStorage.getItem('userData'));
+      this.setState({
+        data :temp
+      });
+    }
+  }
+  
 
   // Bắt đầu hiển thị form Edit User 
 
@@ -42,7 +57,7 @@ class App extends Component {
     this.setState({
       data: items
     });
-    console.log(this.state.data);
+    localStorage.setItem('userData',JSON.stringify(items))
   }
 
 
@@ -60,7 +75,6 @@ class App extends Component {
   // Lấy dữ liệu User bỏ vào form edit
 
   editUser = (user) => {
-    console.log(user);
     this.setState({
       userEditObject: user
     });
@@ -78,6 +92,7 @@ class App extends Component {
         value.permission = info.permission;
       }
     })
+    localStorage.setItem('userData',JSON.stringify(this.state.data))
 
   }
 
@@ -90,6 +105,7 @@ class App extends Component {
     this.setState({
       data :tempData
     });
+    localStorage.setItem('userData',JSON.stringify(tempData))
   }
 
    //end lay id delete
@@ -105,10 +121,7 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-    localStorage.setItem("key1","haha");
-    localStorage.removeItem("key1");
-    console.log(localStorage.getItem("key1"));
-    
+
     return (
       <div>
         <Header />
