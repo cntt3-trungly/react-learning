@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EditUser from './EditUser';
 
 class Seach extends Component {
     constructor(props) {
@@ -6,6 +7,12 @@ class Seach extends Component {
         this.state = {
             tempValue: '' 
         }
+    }
+    isShowEditForm =()=> {
+        if(this.props.editUserStatus === true){
+            return (
+            <EditUser/>    
+            )}
     }
         
     isChange = (event) => {
@@ -25,7 +32,13 @@ class Seach extends Component {
 
     render() {
         return (
+        
             <div className="col-12">
+                <div className="row">
+                    {
+                        this.isShowEditForm()
+                    }                  
+                </div>
                 <div className="form-group">
                     <div className="btn-group">
                         <input type="text" className="form-control" onChange={(event) => this.isChange(event)}

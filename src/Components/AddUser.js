@@ -16,7 +16,7 @@ class AddUser extends Component {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({
-            [name]:value
+            [name]: value
         });
         var item = {};
         item.id = this.state.id;
@@ -32,33 +32,33 @@ class AddUser extends Component {
             return (
                 <div className="col">
                     <form>
-                    <div className="card border-primary mb-3 mt-2">
-                        <div className="card-header">Thêm mới</div>
-                        <div className="card-body text-primary">
-                            <div className="form-group">
-                                <label >Tên User</label>
-                                <input type="text" onChange={(event) => this.isChange(event)} name="name" className="form-control" aria-describedby="helpId" placeholder="Nhập tên User" />
-                            </div>
-                            <div className="form-group">
-                                <label >Điện thoại</label>
-                                <input type="text" onChange={(event) => this.isChange(event)} name="phone" className="form-control" aria-describedby="helpId" placeholder="Nhập Điện thoại" />
-                            </div>
-                            <div className="form-group">
-                                <label >Chọn quyền</label>
-                                <select onChange={(event) => this.isChange(event)}
-                                    name="permission"
-                                    className="custom-select" required>
-                                    <option value>Chọn quyền mặc định</option>
-                                    <option value={1}>Admin</option>
-                                    <option value={2}>Moderator</option>
-                                    <option value={3}>Normal</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <input type="reset" className="btn btn-block btn-primary" onClick={(name,phone,permission)=>this.props.add(this.state.name,this.state.phone,this.state.permission)} value="Thêm mới" />
+                        <div className="card border-primary mb-3 mt-2">
+                            <div className="card-header">Thêm mới</div>
+                            <div className="card-body text-primary">
+                                <div className="form-group">
+                                    <label >Tên User</label>
+                                    <input type="text" onChange={(event) => this.isChange(event)} name="name" className="form-control" aria-describedby="helpId" placeholder="Nhập tên User" />
+                                </div>
+                                <div className="form-group">
+                                    <label >Điện thoại</label>
+                                    <input type="text" onChange={(event) => this.isChange(event)} name="phone" className="form-control" aria-describedby="helpId" placeholder="Nhập Điện thoại" />
+                                </div>
+                                <div className="form-group">
+                                    <label >Chọn quyền</label>
+                                    <select onChange={(event) => this.isChange(event)}
+                                        name="permission"
+                                        className="custom-select" required>
+                                        <option value>Chọn quyền mặc định</option>
+                                        <option value={1}>Admin</option>
+                                        <option value={2}>Moderator</option>
+                                        <option value={3}>Normal</option>
+                                    </select>
+                                </div>
+                                <div className="form-group">
+                                    <input type="reset" className="btn btn-block btn-primary" onClick={(name, phone, permission) => this.props.add(this.state.name, this.state.phone, this.state.permission)} value="Thêm mới" />
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             )
