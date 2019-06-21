@@ -18,21 +18,21 @@ class App extends Component {
     }
   }
 
-  getDataAddUser = (name,phone,permission) => {
-   var item={};
-   item.id=uuidv1();
-   item.name=name;
-   item.tel=phone;
-   item.permission=permission;
-   console.log(item);
-   var items = this.state.data
-   items.push(item);
-   this.setState({
-     data : items
-   });
-   console.log(this.state.data);
-   
-}
+  getDataAddUser = (name, phone, permission) => {
+    var item = {};
+    item.id = uuidv1();
+    item.name = name;
+    item.tel = phone;
+    item.permission = permission;
+    console.log(item);
+    var items = this.state.data
+    items.push(item);
+    this.setState({
+      data: items
+    });
+    console.log(this.state.data);
+
+  }
 
 
   doiTrangThai = () => {
@@ -46,6 +46,11 @@ class App extends Component {
       searchText: dl
     })
   }
+
+  editUser = () => {
+    console.log("ket noi ok");
+  }
+
 
 
   // thongBao =()=>{
@@ -71,10 +76,15 @@ class App extends Component {
                 checkConnectProps={(dl) => this.getTextSearch(dl)}
                 ketNoi={() => this.doiTrangThai()}
                 hienThiForm={this.state.hienThiForm} />
-                <TableData dataUserProps={ketqua} />
-                <AddUser add={(name,phone,permission) => this.getDataAddUser(name,phone,permission)}
-                hienThiForm={this.state.hienThiForm}/>
-    
+
+              <TableData
+                editFun={() => this.editUser()}
+                dataUserProps={ketqua} />
+
+
+              <AddUser add={(name, phone, permission) => this.getDataAddUser(name, phone, permission)}
+                hienThiForm={this.state.hienThiForm} />
+
             </div>
           </div>
         </div>
