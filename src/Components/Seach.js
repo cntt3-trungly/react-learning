@@ -11,7 +11,7 @@ class Seach extends Component {
     isShowEditForm =()=> {
         if(this.props.editUserStatus === true){
             return (
-            <EditUser/>    
+            <EditUser changeEditUserStatus={()=>this.props.changeEditUserStatus()}/>    
             )}
     }
         

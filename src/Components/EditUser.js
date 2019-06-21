@@ -28,7 +28,7 @@ class EditUser extends Component {
                             </div>
                             <div className="form-group">
                                 <input type="reset" className="btn btn-block btn-primary" 
-                                onClick={(name, phone, permission) => this.props.add(this.state.name, this.state.phone, this.state.permission)} 
+                                onClick={()=>this.props.changeEditUserStatus()}
                                 value="Lưu" />
                             </div>
                         </div>
