@@ -70,7 +70,7 @@ class App extends Component {
 
   //Begin lay du lieu tu edit tu search
 
-  getUserEditInfoApp = (info) => {  
+  getUserEditInfoApp = (info) => {
     this.state.data.forEach((value, key) => {
       if (value.id === info.id) {
         value.name = info.name;
@@ -83,6 +83,14 @@ class App extends Component {
 
   //End lay du lieu tu edit tu search
 
+  //Start lay id delete
+
+  deleteButtonClickApp = (id) => {
+    console.log(id);
+    
+  }
+
+   //end lay id delete
 
   // thongBao =()=>{
   //   alert('ket noi thanh cong') ;
@@ -114,6 +122,7 @@ class App extends Component {
                 changeEditUserStatus={() => this.changeEditUserStatus()} />
 
               <TableData
+                deleteButtonClickApp={(id) => this.deleteButtonClickApp(id)}
                 editFun={(user) => this.editUser(user)}
                 dataUserProps={ketqua}
                 changeEditUserStatus={() => this.changeEditUserStatus()} />
