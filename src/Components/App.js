@@ -105,7 +105,10 @@ class App extends Component {
         ketqua.push(item);
       }
     })
-
+    localStorage.setItem("key1","haha");
+    localStorage.removeItem("key1");
+    console.log(localStorage.getItem("key1"));
+    
     return (
       <div>
         <Header />
