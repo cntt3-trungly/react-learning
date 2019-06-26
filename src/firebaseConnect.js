@@ -14,10 +14,19 @@ import * as firebase from 'firebase';
 
  export const firebaseConnect =  firebase.initializeApp(firebaseConfig);
 
- var data = firebase.database().ref('dataForNote');
-    data.once('value').then(function(snapshot){
-        console.log(snapshot.val());
-        
+ var data = firebase.database().ref('dataForNote/node2');
+    // data.once('value').then(function(snapshot){
+    //     console.log(snapshot.val());
+    
+    //Sửa dữ liệu
+    data.set({
+    id:1,
+    title:"Ghi chu  20/12",
+    content : "Demo content for note "
+
+
     })
+        
+    
 
  
