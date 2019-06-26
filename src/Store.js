@@ -27,11 +27,6 @@ const allReducers = redux.combineReducers({
 
 
 
-
-
-
-
-
 var store1 = redux.createStore(allReducers);
 store1.subscribe(() => {
     console.log(JSON.stringify(store1.getState()));
