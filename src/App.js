@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {firebaseConnect} from './firebaseConnect'
 
 function App() {
   return (
+    console.log(firebaseConnect),
+    
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
