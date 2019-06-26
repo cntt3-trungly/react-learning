@@ -14,22 +14,31 @@ class App extends Component {
           return { ...state, editStatus: !state.editStatus }
           break;
         case "ADD_NEW":
-          return { ...state, num:[...state.num,action.phantumoi] }
+          return { ...state, num: [...state.num, action.phantumoi] }
+          break;
+        case "DELETE":
+          return { ...state, num:state.num.filter((value,key)=> key!==action.index) }
           break;
 
+
         default:
+            return state;
           break;
       }
-      return state;
+
     }
     var store1 = redux.createStore(reducer1);
     store1.dispatch({ type: "CHANGE_EDIT_STATUS" });
     store1.dispatch({
-      type:"ADD_NEW",
-      phantumoi:"Tai Nghe"
+      type: "ADD_NEW",
+      phantumoi: "Tai Nghe"
+    })
+    store1.dispatch({
+      type: "DELETE",
+      index: 1
     })
     console.log(store1.getState());
-    
+
 
 
     return (
