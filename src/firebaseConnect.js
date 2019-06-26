@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 
  export const firebaseConnect =  firebase.initializeApp(firebaseConfig);
 
- var data = firebase.database().ref('dataForNote/node2');
+ var data = firebase.database().ref('dataForNote/node3');
     // data.once('value').then(function(snapshot){
     //     console.log(snapshot.val());
     

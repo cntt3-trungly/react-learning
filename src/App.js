@@ -1,29 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
 import {firebaseConnect} from './firebaseConnect'
-
-function App() {
-  return (
-    console.log(firebaseConnect),
+import * as firebase from 'firebase';
+export default class App extends Component {
+  pushData =()=>{
+    var connectData = firebase.database().ref('dataForNote');
+    connectData.push({
+      title:"ghi chu so 3",
+      content:"noi dung ghi chu so 3 "
+    })
+    console.log('ban vua them du lieu');
     
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  }
+  render() {
+    console.log(firebaseConnect);
+    return (
+      <div>
+        <button onClick={()=>this.pushData()}>Click</button>
+      </div>
+    )
+  }
 }
 
-export default App;
