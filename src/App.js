@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { firebaseConnect } from './firebaseConnect'
-import * as firebase from 'firebase';
+import { noteData } from './firebaseConnect'
 import Nav from './Nav';
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
@@ -20,10 +19,16 @@ export default class App extends Component {
   //   connectData.child(id).remove();
 
   //   console.log('ban vua xoa du lieu');
+    
+  addData =(item) =>{
+    noteData.push(item);
+  }
 
-
-  render() {
-
+   render() {
+  //  noteData.once('value').then(function(snapshot){
+  //       console.log(snapshot.val());
+        
+  //   });
     return (
 
       <div>
@@ -31,7 +36,7 @@ export default class App extends Component {
         <div className="container mt-5">
           <div className="row">
           <NoteList />
-            <NoteForm />
+          <NoteForm getData={(item)=>this.addData(item)}/>
           </div>
         </div>
       </div>

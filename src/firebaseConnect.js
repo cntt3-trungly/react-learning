@@ -10,22 +10,22 @@ import * as firebase from 'firebase';
     appId: "1:923870426890:web:d434d672d5b0a2f8"
   };
   // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
+ export const noteData =  firebase.database().ref('dataForNote')
 
- export const firebaseConnect =  firebase.initializeApp(firebaseConfig);
-
- var data = firebase.database().ref('dataForNote/node3');
-    // data.once('value').then(function(snapshot){
-    //     console.log(snapshot.val());
+//  var data = firebase.database().ref('dataForNote/node3');
+//     // data.once('value').then(function(snapshot){
+//     //     console.log(snapshot.val());
     
-    //Sửa dữ liệu
-    data.set({
-    id:1,
-    title:"Ghi chu  20/12",
-    content : "Demo content for note "
+//     //Sửa dữ liệu
+//     data.set({
+//     id:1,
+//     title:"Ghi chu  20/12",
+//     content : "Demo content for note "
 
 
-    })
+//     })
         
     
 

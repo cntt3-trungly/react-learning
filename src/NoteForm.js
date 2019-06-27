@@ -19,10 +19,10 @@ export default class NoteForm extends Component {
 
     addData = (title,content) => {
         var item = {};
-        item.tilte=title;
-        item.content=content;
-        console.log(item);
-        
+        item.noteTilte=title;
+        item.noteContent=content;
+        this.props.getData(item);
+        alert("them du lieu thanh cong");
     } 
     
     render() {
