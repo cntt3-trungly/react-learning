@@ -55,11 +55,6 @@ import { connect } from 'react-redux';
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        testThoi: state.testConnect
-    }
-}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -68,4 +63,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
+export default connect(mapDispatchToProps)(NoteForm);
