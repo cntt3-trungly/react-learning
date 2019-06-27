@@ -4,7 +4,7 @@ import { noteData } from './firebaseConnect'
 import Nav from './Nav';
 import NoteForm from './NoteForm';
 import NoteList from './NoteList';
-export default class App extends Component {
+ class App extends Component {
   // pushData =()=>{
   //   var connectData = firebase.database().ref('dataForNote');
   //   connectData.push({
@@ -43,4 +43,7 @@ export default class App extends Component {
     )
   }
 }
+
+export default App
+
 

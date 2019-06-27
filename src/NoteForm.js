@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class NoteForm extends Component {
+
+ class NoteForm extends Component {
     constructor(props) {
         super(props);
         this.state ={
@@ -18,11 +20,12 @@ export default class NoteForm extends Component {
     }
 
     addData = (title,content) => {
-        var item = {};
-        item.noteTilte=title;
-        item.noteContent=content;
-        this.props.getData(item);
-        alert("them du lieu thanh cong");
+        // var item = {};
+        // item.noteTilte=title;
+        // item.noteContent=content;
+        // this.props.getData(item);
+        // alert("them du lieu thanh cong");
+        this.props.addDataStore();
     } 
     
     render() {
@@ -53,3 +56,18 @@ export default class NoteForm extends Component {
         )
     }
 }
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        testThoi: state.testConnect
+    }
+}
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        addDataStore: () => {
+            dispatch({type:'ADD_DATA'})
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
