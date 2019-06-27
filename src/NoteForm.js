@@ -20,12 +20,12 @@ import { connect } from 'react-redux';
     }
 
     addData = (title,content) => {
-        // var item = {};
-        // item.noteTilte=title;
-        // item.noteContent=content;
+        var item = {};
+        item.noteTilte=title;
+        item.noteContent=content;
         // this.props.getData(item);
         // alert("them du lieu thanh cong");
-        this.props.addDataStore();
+        this.props.addDataStore(item);
     } 
     
     render() {
@@ -65,8 +65,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addDataStore: () => {
-            dispatch({type:'ADD_DATA'})
+        addDataStore: (getItem) => {
+            dispatch({type:'ADD_DATA' , getItem})
         }
     }
 }
