@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 
 class NoteItem extends Component {
 
-    twoActionEditButton =() =>{
+    twoActionEditButton = () => {
         this.props.changeEditStatus();
-        
-        console.log(this.props.note);
-        
+        this.props.getEditData(this.props.note)
 
     }
     render() {
@@ -20,7 +18,7 @@ class NoteItem extends Component {
                             {this.props.noteTitle}
                         </a>
                         <div className="btn-group float-right">
-                            <button className="btn btn-outline-info" onClick={()=>this.twoActionEditButton()}>Sửa</button>
+                            <button className="btn btn-outline-info" onClick={() => this.twoActionEditButton()}>Sửa</button>
                             <button className="btn btn-outline-secondary">Xóa</button>
                         </div>
                     </h5>
@@ -45,10 +43,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         changeEditStatus: () => {
             dispatch({
-              type: "CHANGE_EDIT_STATUS"
+                type: "CHANGE_EDIT_STATUS"
+            })
+        },
+        getEditData: (editObject) => {
+            dispatch({
+                type: "GET_EDIT_DATA",
+                editObject
             })
         }
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(NoteItem)
+export default connect(mapStateToProps, mapDispatchToProps)(NoteItem)
