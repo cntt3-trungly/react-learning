@@ -24,7 +24,6 @@ const allReducer = (state = noteInitialState, action) => {
 }
 var store = redux.createStore(allReducer);
 store.subscribe(function () {
-    console.log(JSON.stringify(store.getState()));
-    
+    console.log(JSON.stringify(store.getState()));   
 })
 export default store;

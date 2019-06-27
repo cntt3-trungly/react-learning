@@ -27,13 +27,15 @@ class NoteForm extends Component {
     }
 
     render() {
-
+        
         return (
             <div className="col-4">
                 <h3>SỬA NỘI DUNG NOTE </h3>
                 <div className="form-group">
                     <label htmlFor="noteTitle">Tiêu đề note</label>
-                    <input type="text" className="form-control"
+                    <input 
+                        defaultValue={this.props.editItem.noteTitle}
+                        type="text" className="form-control"
                         name="noteTitle" id="noteTitle" aria-describedby="helpIdNoteTile"
                         placeholder="Tiêu đề note"
                         onChange={(event) => this.isChange(event)} />
@@ -42,9 +44,11 @@ class NoteForm extends Component {
                 <h3>SỬA NỘI DUNG NOTE </h3>
                 <div className="form-group">
                     <label htmlFor="noteContent">Nội dung note</label>
-                    <textarea type="text" className="form-control" name="noteContent"
+                    <textarea 
+                        
+                        type="text" className="form-control" name="noteContent"
                         id="noteTitle" aria-describedby="helpIdNoteTile" placeholder="Nôi dung note"
-                        defaultValue={""}
+                        defaultValue={this.props.editItem.noteContent}
                         onChange={(event) => this.isChange(event)} />
                     <small id="helpIdNoteTile" className="form-text text-muted">Điền nội dung vào đây</small>
                 </div>
@@ -54,7 +58,11 @@ class NoteForm extends Component {
         )
     }
 }
-
+const mapStateToProps = (state, ownProps) => {
+    return {
+        editItem: state.editItem
+    }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -63,4 +71,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }
     }
 }
-export default connect(mapDispatchToProps)(NoteForm);
+export default connect(mapStateToProps,mapDispatchToProps)(NoteForm);
