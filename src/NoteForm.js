@@ -11,6 +11,18 @@ class NoteForm extends Component {
         }
 
     }
+
+
+    componentWillMount() {
+        if (this.props.editItem) {
+            this.setState({
+                noteTitle: this.props.editItem.noteTitle,
+                noteContent: this.props.editItem.noteContent,
+                id: this.props.editItem.id
+            });
+        }
+    }
+
     isChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -27,13 +39,13 @@ class NoteForm extends Component {
     }
 
     render() {
-        
+
         return (
             <div className="col-4">
                 <h3>SỬA NỘI DUNG NOTE </h3>
                 <div className="form-group">
                     <label htmlFor="noteTitle">Tiêu đề note</label>
-                    <input 
+                    <input
                         defaultValue={this.props.editItem.noteTitle}
                         type="text" className="form-control"
                         name="noteTitle" id="noteTitle" aria-describedby="helpIdNoteTile"
@@ -44,15 +56,16 @@ class NoteForm extends Component {
                 <h3>SỬA NỘI DUNG NOTE </h3>
                 <div className="form-group">
                     <label htmlFor="noteContent">Nội dung note</label>
-                    <textarea 
-                        
+                    <textarea
+
                         type="text" className="form-control" name="noteContent"
                         id="noteTitle" aria-describedby="helpIdNoteTile" placeholder="Nôi dung note"
                         defaultValue={this.props.editItem.noteContent}
                         onChange={(event) => this.isChange(event)} />
                     <small id="helpIdNoteTile" className="form-text text-muted">Điền nội dung vào đây</small>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={(tilte, content) => this.addData(this.state.noteTitle, this.state.noteContent)}>New</button>
+                <button type="submit" className="btn btn-primary"
+                    onClick={(tilte, content) => this.addData(this.state.noteTitle, this.state.noteContent)}>Add    </button>
             </div>
 
         )
@@ -71,4 +84,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         }
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(NoteForm);
+export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
