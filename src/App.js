@@ -38,16 +38,8 @@ const mapStateToProps = (state, ownProps) => {
     isEdit: state.isEdit
   }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    changeEditStatus: () => {
-      dispatch({
-        type: 'CHANGE_EDIT_STATUS'
-      })
-    }
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+export default connect(mapStateToProps)(App)
 
 
