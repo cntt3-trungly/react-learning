@@ -6,14 +6,18 @@ class NoteItem extends Component {
             <div className="card">
                 <div className="card-header" role="tab" id="note1">
                     <h5 className="mb-0">
-                        <a data-toggle="collapse" data-parent="#noteList" href="#noteContent1" aria-expanded="true" aria-controls="noteContent1">
-                            Ghi chú ngày 26/3/2019
-          </a>
+                        <a data-toggle="collapse" data-parent="#noteList" href={'#number'+this.props.i} aria-expanded="true" aria-controls="noteContent1">
+                            {this.props.noteTitle}
+                        </a>
+                        <div className="btn-group float-right">
+                            <button className="btn btn-outline-info">Sửa</button>
+                            <button className="btn btn-outline-secondary">Xóa</button>
+                        </div>
                     </h5>
                 </div>
-                <div id="noteContent1" className="collapse in" role="tabpanel" aria-labelledby="note1">
+                <div id={'number'+this.props.i} className="collapse in" role="tabpanel" aria-labelledby="note1">
                     <div className="card-body">
-                        trung dep trai.
+                        {this.props.noteContent}
         </div>
                 </div>
             </div>

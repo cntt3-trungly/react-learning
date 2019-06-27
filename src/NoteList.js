@@ -32,7 +32,16 @@ class NoteList extends Component {
     }
     
     getData = () => {
-        console.log(this.state.dataFireBase);
+        return this.state.dataFireBase.map((value,key)=>{
+            return (
+                <NoteItem
+                key={key}
+                i={key  }
+                noteTitle={value.noteTitle}
+                noteContent={value.noteContent}
+                />
+            )
+        });
         
 }
 
@@ -43,10 +52,6 @@ class NoteList extends Component {
                     {
                         this.getData()
                     }
-                <NoteItem/>
-                <NoteItem/>
-                <NoteItem/>
-                <NoteItem/>
                 </div>
             </div>
 
