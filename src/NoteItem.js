@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 
 
 class NoteItem extends Component {
+
+    twoActionEditButton =() =>{
+        this.props.changeEditStatus();
+        
+        console.log(this.props.note);
+        
+
+    }
     render() {
         return (
             <div className="card">
@@ -12,7 +20,7 @@ class NoteItem extends Component {
                             {this.props.noteTitle}
                         </a>
                         <div className="btn-group float-right">
-                            <button className="btn btn-outline-info" onClick={()=>this.props.changeEditStatus()}>Sửa</button>
+                            <button className="btn btn-outline-info" onClick={()=>this.twoActionEditButton()}>Sửa</button>
                             <button className="btn btn-outline-secondary">Xóa</button>
                         </div>
                     </h5>
@@ -29,7 +37,7 @@ class NoteItem extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        
+
     }
 }
 
