@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 
     addData = (title,content) => {
         var item = {};
-        item.noteTilte=title;
+        item.noteTitle=title;
         item.noteContent=content;
          this.props.addDataStore(item);
     } 

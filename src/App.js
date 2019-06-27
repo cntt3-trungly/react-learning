@@ -13,6 +13,7 @@ class App extends Component {
         <div className="container mt-5">
           <div className="row">
             <NoteList />
+            <NoteForm/>
           </div>
         </div>
       </div>
