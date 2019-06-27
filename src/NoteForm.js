@@ -23,9 +23,7 @@ import { connect } from 'react-redux';
         var item = {};
         item.noteTilte=title;
         item.noteContent=content;
-        // this.props.getData(item);
-        // alert("them du lieu thanh cong");
-        this.props.addDataStore(item);
+         this.props.addDataStore(item);
     } 
     
     render() {
