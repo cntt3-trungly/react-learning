@@ -17,14 +17,16 @@ const allReducer = (state = noteInitialState, action) => {
             return { ...state, isEdit: !state.isEdit }
         case "GET_EDIT_DATA":
             return { ...state, editItem: action.editObject }
+
         case "EDIT":
             //update du lieu len tren firebase
             noteData.child(action.getItem.id).update({
-                noteTitle:action.getItem.noteTitle,
-                noteContent:action.getItem.noteContent
-            })            
-            console.log('du lieu can sua store nhan dc la' +JSON.stringify(action.getItem));
-            
+                noteTitle: action.getItem.noteTitle,
+                noteContent: action.getItem.noteContent
+            })
+            return { ...state, editItem: {} }
+        case "DELETE":
+            noteData.child(action.deleteItem).remove();
             return { ...state, editItem: {} }
         default:
             return state

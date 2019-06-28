@@ -7,7 +7,9 @@ class NoteItem extends Component {
     twoActionEditButton = () => {
         this.props.changeEditStatus();
         this.props.getEditData(this.props.note)
-
+    }
+    deleteItem =()=>{
+        this.props.getdeleteItem(this.props.note.id);
     }
     render() {
         return (
@@ -19,7 +21,7 @@ class NoteItem extends Component {
                         </a>
                         <div className="btn-group float-right">
                             <button className="btn btn-outline-info" onClick={() => this.twoActionEditButton()}>Sửa</button>
-                            <button className="btn btn-outline-secondary">Xóa</button>
+                            <button className="btn btn-outline-secondary" onClick={()=>this.deleteItem()}>Xóa</button>
                         </div>
                     </h5>
                 </div>
@@ -51,7 +53,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 type: "GET_EDIT_DATA",
                 editObject
             })
-        }
+        },
+        getdeleteItem: (deleteItem) => {
+            dispatch({
+                type: "DELETE",
+                deleteItem
+            })
+        },
     }
 }
 
