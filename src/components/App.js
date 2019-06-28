@@ -2,10 +2,21 @@ import React, { Component } from 'react';
 import HeadTitle from './HeadTitle';
 import Products from './Product';
 import './App.css';
+import axios from 'axios';
+//import dataProducts  from 'http://localhost:5000/getData01'
 
 
 class App extends Component {
   render() {
+    axios.get('http://localhost:5000/getData01')
+      .then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
     return (
       <div>
         <HeadTitle />
