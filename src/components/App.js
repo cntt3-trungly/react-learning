@@ -3,6 +3,7 @@ import HeadTitle from './HeadTitle';
 import Products from './Product';
 import './App.css';
 import axios from 'axios';
+import AppProducts from './AppProduct';
 //import dataProducts  from 'http://localhost:5000/getData01'
 const getProductData = () =>
   axios.get('http://localhost:5000/getData01')
@@ -43,6 +44,7 @@ class App extends Component {
     return (
       <div>
         <HeadTitle />
+        <AppProducts/>
         <div className="container">
           <div className="row">
             {
