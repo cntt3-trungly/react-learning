@@ -32,14 +32,15 @@ class NoteForm extends Component {
     }
 
     addData = (title, content) => {
-        if (this.state.id) {
-           var editObject ={};
-           editObject.id=this.state.id;
-           editObject.noteContent=this.state.noteContent;
-           editObject.noteTitle=this.state.noteTitle;
-           this.props.editDataStore(editObject)
-           this.props.changeEditStatus();
-        } else {
+        if (this.state.id) {//edit case
+            var editObject = {};
+            editObject.id = this.state.id;
+            editObject.noteContent = this.state.noteContent;
+            editObject.noteTitle = this.state.noteTitle;
+            this.props.editDataStore(editObject)
+            this.props.changeEditStatus();
+            this.props.alertOn();
+        } else {// add case
             var item = {};
             item.noteTitle = title;
             item.noteContent = content;
@@ -49,11 +50,11 @@ class NoteForm extends Component {
             
         }
     }
-    showTitle =()=>{
-        if(this.props.isAdd){
-            return(<h3>Thêm mới </h3>)
+    showTitle = () => {
+        if (this.props.isAdd) {
+            return (<h3>Thêm mới </h3>)
         }
-        else{
+        else {
             return (<h3> Sửa note </h3>)
         }
     }
@@ -111,13 +112,19 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch({
                 type: "CHANGE_EDIT_STATUS"
             })
-            
+
         },
-        changeAddStatus: () => {
+        alertOn: () => {
             dispatch({
-                type: "CHANGE_ADD_STATUS"
+                type: "ALERT_ON_STATUS"
             })
+        },
+        alertOff: () => {
+            dispatch({
+                type: "ALERT_OFF_STATUS"
+            })
+        }
+
     }
-}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);

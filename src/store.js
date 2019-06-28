@@ -7,7 +7,7 @@ const noteInitialState = {
     isEdit: false,
     isAdd: false,
     editItem: {},
-    alertShow: true
+    alertShow: false
 }
 const allReducer = (state = noteInitialState, action) => {
     switch (action.type) {
@@ -20,9 +20,12 @@ const allReducer = (state = noteInitialState, action) => {
         case "CHANGE_ADD_STATUS":
             noteData.push(action.getItem);
             return { ...state, isAdd: !state.isAdd }
+        case "ALERT_ON_STATUS":
+            return { ...state, alertShow: true }
+        case "ALERT_OFF_STATUS":
+            return { ...state, alertShow: false }
         case "GET_EDIT_DATA":
             return { ...state, editItem: action.editObject }
-
         case "EDIT":
             //update du lieu len tren firebase
             noteData.child(action.getItem.id).update({
@@ -30,6 +33,7 @@ const allReducer = (state = noteInitialState, action) => {
                 noteContent: action.getItem.noteContent
             })
             return { ...state, editItem: {} }
+
         case "DELETE":
             noteData.child(action.deleteItem).remove();
             return { ...state, editItem: {} }
