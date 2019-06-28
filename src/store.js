@@ -16,14 +16,18 @@ const allReducer = (state = noteInitialState, action) => {
             noteData.push(action.getItem);
             return { ...state, isEdit: !state.isEdit }
         case "GET_EDIT_DATA":
-
-            return { ...state, editItem:action.editObject }
+            return { ...state, editItem: action.editObject }
+        case "EDIT":
+            //update du lieu len tren firebase            
+            console.log('du lieu can sua store nhan dc la' +JSON.stringify(action.getItem));
+            
+            return { ...state, editItem: {} }
         default:
             return state
     }
 }
 var store = redux.createStore(allReducer);
 store.subscribe(function () {
-    console.log(JSON.stringify(store.getState()));   
+    console.log(JSON.stringify(store.getState()));
 })
 export default store;
