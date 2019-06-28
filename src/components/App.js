@@ -39,9 +39,7 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state.data);
-
-    return (
+  return (
       <div>
         <HeadTitle />
         <AppProducts/>
