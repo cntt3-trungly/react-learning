@@ -11,7 +11,7 @@ class AlertInfo extends Component {
         if (this.props.alertShow === false) return null;
         return (
             <AlertContainer>
-                <Alert type="info" onDismiss={() => this.handleDismiss()} timeout={2000}>
+                <Alert type={this.props.alertType} onDismiss={() => this.handleDismiss()} timeout={2000}>
                     {this.props.alertContent}
                 </Alert>
                 
@@ -23,7 +23,8 @@ class AlertInfo extends Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         alertShow: state.alertShow,
-        alertContent:state.alertContent
+        alertContent:state.alertContent,
+        alertType:state.alertType
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
