@@ -4,32 +4,50 @@ import Products from './Product';
 import './App.css';
 import axios from 'axios';
 //import dataProducts  from 'http://localhost:5000/getData01'
-
+const getProductData = () =>
+  axios.get('http://localhost:5000/getData01')
+    .then((res) => res.data)
 
 class App extends Component {
-  render() {
-    axios.get('http://localhost:5000/getData01')
-      .then(function (response) {
-        // handle success
-        console.log(response);
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null
+    }
+  }
+  componentWillMount() {
+    if (this.state.data === null) {
+      getProductData().then((res) => {
+        this.setState({
+          data: res
+        });
       })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    }
+  }
+
+  printData = () => {
+    if (this.state.data !== null) {
+      return this.state.data.map((value, key) =>
+
+        (<Products
+          key={key}
+          product_name={value.product_name}
+          product_price={value.product_price}
+          image={value.image} />)
+        )
+    }
+  }
+  render() {
+    console.log(this.state.data);
+
     return (
       <div>
         <HeadTitle />
         <div className="container">
           <div className="row">
-            <Products
-              product_name='Bút chì'
-              product_price='500000'
-              image='http://channel.mediacdn.vn/2019/6/28/photo-1-15616990644991682841763.jpg' />
-            <Products
-              product_name='Bút bi'
-              product_price='100000'
-              image='https://kenh14cdn.com/zoom/280_175/2019/6/28/gif-4-15616969719491971969447-crop-15617045186841915171446.gif' />
+            {
+              this.printData()
+            }
 
           </div>
         </div>
