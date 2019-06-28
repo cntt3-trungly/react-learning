@@ -44,14 +44,26 @@ class NoteForm extends Component {
             item.noteTitle = title;
             item.noteContent = content;
             this.props.addDataStore(item);
+            this.props.changeAddStatus();
+            this.props.changeEditStatus();
+            
         }
     }
-
+    showTitle =()=>{
+        if(this.props.isAdd){
+            return(<h3>Thêm mới </h3>)
+        }
+        else{
+            return (<h3> Sửa note </h3>)
+        }
+    }
     render() {
 
         return (
             <div className="col-4">
-                <h3>Thêm mới hoặc sửa note </h3>
+                {
+                    this.showTitle()
+                }
                 <div className="form-group">
                     <label htmlFor="noteTitle">Tiêu đề note</label>
                     <input
@@ -82,7 +94,8 @@ class NoteForm extends Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        editItem: state.editItem
+        editItem: state.editItem,
+        isAdd: state.isAdd
     }
 }
 
@@ -98,7 +111,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             dispatch({
                 type: "CHANGE_EDIT_STATUS"
             })
-        }
+            
+        },
+        changeAddStatus: () => {
+            dispatch({
+                type: "CHANGE_ADD_STATUS"
+            })
     }
+}
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NoteForm);
