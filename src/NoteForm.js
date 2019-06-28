@@ -51,7 +51,7 @@ class NoteForm extends Component {
 
         return (
             <div className="col-4">
-                <h3>SỬA NỘI DUNG NOTE </h3>
+                <h3>Thêm mới hoặc sửa note </h3>
                 <div className="form-group">
                     <label htmlFor="noteTitle">Tiêu đề note</label>
                     <input
