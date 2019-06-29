@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
+const addProductAction =(product_name,product_price,image)=>{
+    return axios.post('http://localhost:4000',{product_name,product_price,image})
+    .then((resp)=>resp.data)
+}
 class AppProducts extends Component {
     constructor(props) {
         super(props);
@@ -19,6 +24,20 @@ class AppProducts extends Component {
     }
     handleClick =()=>{
         console.log(JSON.stringify(this.state));
+        //cach 1
+        // var {product_name}=this.state.product;
+        // var {product_price}=this.state.product;
+        // var {price}=this.state;
+
+        // cach 2
+
+        var {product_name,product_price,price}=this.state;
+        
+
+        addProductAction(product_name,product_price,price).then((response)=>{
+            console.log(response);
+            
+        })
          }
     render() {
         return (
